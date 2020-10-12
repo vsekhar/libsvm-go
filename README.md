@@ -1,13 +1,13 @@
 # libsvm-go: Support Vector Machine
 
 
-This is a full port of LIBSVM in the Go programming language.  [LIBSVM][1] is a suite of tools and an API library for support vector classification, regression, and distribution estimation.  This port implements the libsvm library in the form of a Go package called <code>libSvm</code>.  It also implements the <code>svm-train</code> and <code>svm-predict</code> command line tools.
+This is a full port of LIBSVM in the Go programming language.  [LIBSVM][1] is a suite of tools and an API library for support vector classification, regression, and distribution estimation.  This port implements the libsvm library in the form of a Go package called <code>libsvm</code>.  It also implements the <code>svm-train</code> and <code>svm-predict</code> command line tools.
 
 This port has no external package dependencies, and uses only the native standard library.
 
 ## Installation
 
-    go get github.com/vsekhar/libsvm-go
+    go get github.com/vsekhar/libsvm-go/pkg/libsvm-go
     make
 
 ## Compatibility Notes 
@@ -24,15 +24,15 @@ For full documentation of the <code>svm-train</code> and <code>svm-predict</code
 
 ### Training
 ```go
-import "github.com/vsekhar/libsvm-go"
+import "github.com/vsekhar/libsvm-go/pkg/libsvm-go"
     
-param := libSvm.NewParameter()      // Create a parameter object with default values
-param.KernelType = libSvm.POLY      // Use the polynomial kernel
+param := libsvm.NewParameter()      // Create a parameter object with default values
+param.KernelType = libsvm.POLY      // Use the polynomial kernel
     
-model := libSvm.NewModel(param)     // Create a model object from the parameter attributes
+model := libsvm.NewModel(param)     // Create a model object from the parameter attributes
     
 // Create a problem specification from the training data and parameter attributes
-problem, err := libSvm.NewProblem("a9a.train", param) 
+problem, err := libsvm.NewProblem("a9a.train", param) 
     
 model.Train(problem)                // Train the model from the problem specification
     
@@ -41,10 +41,10 @@ model.Dump("a9a.model")             // Dump the model into a user-specified file
     
 ### Predicting
 ```go
-import "github.com/vsekhar/libsvm-go"
+import "github.com/vsekhar/libsvm-go/pkg/libsvm-go"
     
 // Create a model object from the model file generated from training
-model := libSvm.NewModelFromFile("a9a.model")  
+model := libsvm.NewModelFromFile("a9a.model")  
     
 x := make(map[int]float64)
 // Populate x with the test vector

@@ -20,16 +20,17 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
 	"io"
 	"io/ioutil"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
 var outFP io.Writer = os.Stdout
-var gParam *libSvm.Parameter
+var gParam *libsvm.Parameter
 
 type probabilityType int
 
@@ -40,7 +41,7 @@ func (q *probabilityType) String() string {
 func (q *probabilityType) Set(value string) error {
 	val, err := strconv.Atoi(value)
 	if err != nil || val < 0 || val > 1 {
-		return fmt.Errorf("Invalid probability value (-b %d)\n", val)
+		return fmt.Errorf("invalid probability value (-b %d)", val)
 	}
 	if val == 0 {
 		gParam.Probability = false
@@ -59,7 +60,7 @@ func (q *svmType) String() string {
 func (q *svmType) Set(value string) error {
 	val, err := strconv.Atoi(value)
 	if err != nil || val < 0 || val > 4 {
-		return fmt.Errorf("Invalid svm type (-s %d)\n", val)
+		return fmt.Errorf("invalid svm type (-s %d)", val)
 	}
 	gParam.SvmType = val
 	return nil
@@ -74,7 +75,7 @@ func (q *kernelType) String() string {
 func (q *kernelType) Set(value string) error {
 	val, err := strconv.Atoi(value)
 	if err != nil || val < 0 || val > 4 {
-		return fmt.Errorf("Invalid kernel type (-t %d)\n", val)
+		return fmt.Errorf("invalid kernel type (-t %d)", val)
 	}
 	gParam.KernelType = val
 	return nil
@@ -137,7 +138,7 @@ func usage() {
 		"-N n: number of CPUs to use (default -1 uses all available logical CPUs)\n")
 }
 
-func parseOptions(param *libSvm.Parameter) (nrFold int, trainFile string, modelFile string) {
+func parseOptions(param *libsvm.Parameter) (nrFold int, trainFile string, modelFile string) {
 	gParam = param // set gParam to the param so we can have svmType, kernelType, and weightType update it
 
 	var svmTypeFlag svmType

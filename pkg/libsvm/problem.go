@@ -16,7 +16,7 @@
 ** Description: Describes problem, i.e. label/vector set
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"bufio"

@@ -16,7 +16,7 @@
 ** Description: Input/output routines for the Support Vector Machine model
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"bufio"

@@ -16,7 +16,7 @@
 ** Description: Prediciton related APIs
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 /**
 *  This function gives decision values on a test vector x given a

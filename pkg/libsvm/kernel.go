@@ -16,7 +16,7 @@
 ** Description: Implements the linear, radial-basis function, sigmoid, and polynomial kernels
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"errors"

@@ -17,7 +17,7 @@
 ** Ref: R.-E. Fan, P.-H. Chen, and C.-J. Lin. "Working set selection using second order information for training SVM". Journal of Machine Learning Research 6 (2005)
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"math"

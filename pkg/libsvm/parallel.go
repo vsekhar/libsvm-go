@@ -16,7 +16,7 @@
 ** Description: Useful types/methods for running loops in parallel.
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	//"fmt"

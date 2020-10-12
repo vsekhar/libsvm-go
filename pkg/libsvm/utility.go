@@ -16,7 +16,7 @@
 ** Description: Useful functions used in various parts of the library
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"bufio"

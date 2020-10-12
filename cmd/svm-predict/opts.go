@@ -20,16 +20,17 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
 	"io"
 	"io/ioutil"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
 var outFP io.Writer = os.Stdout
-var gParam *libSvm.Parameter
+var gParam *libsvm.Parameter
 
 type probabilityType int
 
@@ -40,7 +41,7 @@ func (q *probabilityType) String() string {
 func (q *probabilityType) Set(value string) error {
 	val, err := strconv.Atoi(value)
 	if err != nil || val < 0 || val > 1 {
-		return fmt.Errorf("Invalid probability value (-b %d)\n", val)
+		return fmt.Errorf("invalid probability value (-b %d)", val)
 	}
 	if val == 0 {
 		gParam.Probability = false
@@ -58,7 +59,7 @@ func usage() {
 		"-q : quiet mode (no outputs)\n")
 }
 
-func parseOptions(param *libSvm.Parameter) (testFile string, modelFile string, outputFile string) {
+func parseOptions(param *libsvm.Parameter) (testFile string, modelFile string, outputFile string) {
 
 	gParam = param
 

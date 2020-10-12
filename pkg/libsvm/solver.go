@@ -17,7 +17,7 @@
 ** Ref: C.-C. Chang, C.-J. Lin. "LIBSVM: A library for support vector machines". ACM Transactions on Intelligent Systems and Technology 2 (2011)
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"fmt"

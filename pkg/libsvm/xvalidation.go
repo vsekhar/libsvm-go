@@ -16,7 +16,7 @@
 ** Description: Cross validation API
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"fmt"

@@ -19,13 +19,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
 	"io"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
-func runPrediction(prob *libSvm.Problem, param *libSvm.Parameter, model *libSvm.Model, outputFp io.Writer) {
+func runPrediction(prob *libsvm.Problem, param *libsvm.Parameter, model *libsvm.Model, outputFp io.Writer) {
 
-	squareErr := libSvm.NewSquareErrorComputer()
+	squareErr := libsvm.NewSquareErrorComputer()
 	var total int = 0
 	var correct int = 0
 
@@ -35,7 +36,7 @@ func runPrediction(prob *libSvm.Problem, param *libSvm.Parameter, model *libSvm.
 		targetLabel, x := prob.GetLine() // get the target label and its vector
 
 		var predictLabel float64
-		if param.Probability && (param.SvmType == libSvm.C_SVC || param.SvmType == libSvm.NU_SVC) {
+		if param.Probability && (param.SvmType == libsvm.C_SVC || param.SvmType == libsvm.NU_SVC) {
 			label, probabilityEstimate := model.PredictProbability(x)
 			predictLabel = label
 			for j := 0; j < model.NrClass(); j++ {
@@ -55,7 +56,7 @@ func runPrediction(prob *libSvm.Problem, param *libSvm.Parameter, model *libSvm.
 		total++
 	}
 
-	if param.SvmType == libSvm.NU_SVR || param.SvmType == libSvm.EPSILON_SVR {
+	if param.SvmType == libsvm.NU_SVR || param.SvmType == libsvm.EPSILON_SVR {
 		fmt.Fprintf(outFP, "Mean squared error = %.6g (regression)\n", squareErr.MeanSquareError())
 		fmt.Fprintf(outFP, "Squared correlation coefficient = %.6g (regression)\n", squareErr.SquareCorrelationCoeff())
 	} else {

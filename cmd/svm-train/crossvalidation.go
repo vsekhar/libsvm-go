@@ -19,16 +19,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
-func doCrossValidation(prob *libSvm.Problem, param *libSvm.Parameter, nrFold int) {
+func doCrossValidation(prob *libsvm.Problem, param *libsvm.Parameter, nrFold int) {
 
-	targets := libSvm.CrossValidation(prob, param, nrFold)
+	targets := libsvm.CrossValidation(prob, param, nrFold)
 
-	if param.SvmType == libSvm.EPSILON_SVR || param.SvmType == libSvm.NU_SVR {
+	if param.SvmType == libsvm.EPSILON_SVR || param.SvmType == libsvm.NU_SVR {
 
-		squareErr := libSvm.NewSquareErrorComputer()
+		squareErr := libsvm.NewSquareErrorComputer()
 
 		var i int = 0
 		for prob.Begin(); !prob.Done(); prob.Next() {

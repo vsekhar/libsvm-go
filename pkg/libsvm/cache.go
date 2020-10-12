@@ -16,7 +16,7 @@
 ** Description: Caches Q matrix rows.  The cache implements a LRU (Last Recently Used) eviction policy.
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"container/list"

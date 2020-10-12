@@ -19,12 +19,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
 	"os"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
 func main() {
-	param := libSvm.NewParameter() // create a parameter type
+	param := libsvm.NewParameter() // create a parameter type
 
 	testFile, modelFile, outputFile := parseOptions(param) // parse command-line flags for SVM parameter
 	outputFp, err := os.Create(outputFile)                 // create output file
@@ -32,13 +33,13 @@ func main() {
 		panic(err)
 	}
 
-	prob, err := libSvm.NewProblem(testFile, param) // create a problem type
+	prob, err := libsvm.NewProblem(testFile, param) // create a problem type
 	if err != nil {
 		fmt.Fprint(os.Stderr, "Fail to create a problem type:", err)
 		os.Exit(1)
 	}
 
-	model := libSvm.NewModel(param) // create a model type
+	model := libsvm.NewModel(param) // create a model type
 
 	if err := model.ReadModel(modelFile); err != nil { // populate model with properties in model file
 		fmt.Fprint(os.Stderr, "Fail to read model file: ", err)

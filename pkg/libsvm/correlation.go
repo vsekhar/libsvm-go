@@ -17,7 +17,7 @@
 ** @author: Ed Walker
  */
 
-package libSvm
+package libsvm
 
 type SquareErrorComputer struct {
 	err   float64

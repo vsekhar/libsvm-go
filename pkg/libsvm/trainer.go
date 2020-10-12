@@ -16,7 +16,7 @@
 ** Description: Functions for calling the solver for different problem scenerios, i.e. SVC, SVR, or One-Class
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"fmt"

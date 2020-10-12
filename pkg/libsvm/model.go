@@ -16,7 +16,7 @@
 ** Description: Model describes the properties of the Support Vector Machine after training.
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"fmt"

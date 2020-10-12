@@ -17,7 +17,7 @@
 **              and One-Class Support Vector Machines (oneClassQ)
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 type matrixQ interface {
 	getQ(i, l int) []cacheDataType // Returns all the Q matrix values for row i

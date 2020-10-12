@@ -16,7 +16,7 @@
 ** Description: Probability estimation APIs
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 import (
 	"fmt"

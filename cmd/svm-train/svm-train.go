@@ -19,24 +19,25 @@ package main
 
 import (
 	"fmt"
-	"github.com/vsekhar/libsvm-go"
 	"os"
+
+	"github.com/vsekhar/libsvm-go/pkg/libsvm"
 )
 
 func main() {
-	param := libSvm.NewParameter()                      // create a parameter type
+	param := libsvm.NewParameter()                      // create a parameter type
 	nrFold, trainFile, modelFile := parseOptions(param) // parse command-line flags for SVM parameter
 
-	prob, err := libSvm.NewProblem(trainFile, param) // create a problem type from the train file and the parameter
+	prob, err := libsvm.NewProblem(trainFile, param) // create a problem type from the train file and the parameter
 	if err != nil {
-		fmt.Fprint(os.Stderr, "Fail to create a libSvm.Problem: ", err)
+		fmt.Fprint(os.Stderr, "Fail to create a libsvm.Problem: ", err)
 		os.Exit(1)
 	}
 
 	if nrFold > 0 {
 		doCrossValidation(prob, param, nrFold)
 	} else {
-		model := libSvm.NewModel(param) // create a model from specified parameter
+		model := libsvm.NewModel(param) // create a model from specified parameter
 		model.Train(prob)               // use model to train on the problem data
 		model.Dump(modelFile)           // dump model into the user-specified file
 	}

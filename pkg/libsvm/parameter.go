@@ -16,7 +16,7 @@
 ** Description: Describes the parameters of the Supper Vector Machine solver
 ** @author: Ed Walker
  */
-package libSvm
+package libsvm
 
 const LibSvmGoVersion = 0.318
 
