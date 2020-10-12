@@ -7,7 +7,7 @@ This port has no external package dependencies, and uses only the native standar
 
 ## Installation
 
-    go get github.com/vsekhar/libsvm-go/pkg/libsvm-go
+    go get github.com/vsekhar/libsvm-go/pkg/libsvm
     make
 
 ## Compatibility Notes 
@@ -24,7 +24,7 @@ For full documentation of the <code>svm-train</code> and <code>svm-predict</code
 
 ### Training
 ```go
-import "github.com/vsekhar/libsvm-go/pkg/libsvm-go"
+import "github.com/vsekhar/libsvm-go/pkg/libsvm"
     
 param := libsvm.NewParameter()      // Create a parameter object with default values
 param.KernelType = libsvm.POLY      // Use the polynomial kernel
@@ -41,7 +41,7 @@ model.Dump("a9a.model")             // Dump the model into a user-specified file
     
 ### Predicting
 ```go
-import "github.com/vsekhar/libsvm-go/pkg/libsvm-go"
+import "github.com/vsekhar/libsvm-go/pkg/libsvm"
     
 // Create a model object from the model file generated from training
 model := libsvm.NewModelFromFile("a9a.model")  
